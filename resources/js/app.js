@@ -49,7 +49,7 @@ toDoListApp.controller('toDoListController',['$scope', function($scope){
             tglMulai : new Date(2017,4,19),
             tglSelesai : new Date(2017,4,26),
             prioritas : "sedang",
-            sudahDilakukan : false
+            sudahDilakukan : true
         },
         {
             judul : "Belajar Angular JS",
