@@ -2,6 +2,14 @@ var toDoListApp = angular.module('toDoListApp',[]);
 
 toDoListApp.controller('toDoListController',['$scope', function($scope){
     
+    $scope.selectedToDo;
+    $scope.showEdit = false;
+    
+    $scope.editable = function(todo){
+        $scope.selectedToDo = todo;
+        $scope.showEdit = true;
+    }
+    
     $scope.addToDo = function(){
         $scope.toDoList.push ({
             judul : $scope.newToDo.judul,
@@ -12,6 +20,7 @@ toDoListApp.controller('toDoListController',['$scope', function($scope){
             sudahDilakukan : false
         });
         $scope.newToDo.judul,
+            $scope.newToDo.judul="";
             $scope.newToDo.deskripsi="";
             $scope.newToDo.tglMulai="";
             $scope.newToDo.tglSelesai="";
