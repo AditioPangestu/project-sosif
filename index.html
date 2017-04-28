@@ -17,7 +17,7 @@
                     <div class="panel panel-success" ng-repeat="todo in toDoList | filter:{prioritas:'tinggi'}">
                       <div class="panel-heading">
                         <h3 class="panel-title">{{todo.judul}}</h3>
-                        <h6 class="informasi-tanggal">{{todo.tglMulai}} - {{todo.tglSelesai}}</h6>  
+                        <h6 class="informasi-tanggal">{{todo.tglMulai | date: "dd/MM/yyyy"}} - {{todo.tglSelesai | date: "dd/MM/yyyy"}}</h6>  
                       </div>
                       <div class="panel-body">
                         {{todo.deskripsi}}
@@ -43,7 +43,7 @@
                     <div class="panel panel-success" ng-repeat="todo in toDoList | filter:{prioritas:'sedang'}">
                       <div class="panel-heading">
                         <h3 class="panel-title">{{todo.judul}}</h3>
-                        <h6 class="informasi-tanggal">{{todo.tglMulai}} - {{todo.tglSelesai}}</h6>  
+                        <h6 class="informasi-tanggal">{{todo.tglMulai | date: "dd/MM/yyyy"}} - {{todo.tglSelesai | date: "dd/MM/yyyy"}}</h6>  
                       </div>
                       <div class="panel-body">
                         {{todo.deskripsi}}
@@ -69,7 +69,7 @@
                     <div class="panel panel-success" ng-repeat="todo in toDoList | filter:{prioritas:'rendah'}">
                       <div class="panel-heading">
                         <h3 class="panel-title">{{todo.judul}}</h3>
-                        <h6 class="informasi-tanggal">{{todo.tglMulai}} - {{todo.tglSelesai}}</h6>  
+                        <h6 class="informasi-tanggal">{{todo.tglMulai | date: "dd/MM/yyyy"}} - {{todo.tglSelesai | date: "dd/MM/yyyy"}}</h6>  
                       </div>
                       <div class="panel-body">
                         {{todo.deskripsi}}
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
-                    <form class="form-horizontal well well-sm">
+                    <form class="form-horizontal well well-sm" ng-submit="addToDo()">
                       <fieldset>
                         <legend>Tambah todo list</legend>
                         <div class="form-group">
