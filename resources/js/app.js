@@ -11,6 +11,16 @@ toDoListApp.controller('toDoListController',['$scope', function($scope){
             prioritas : $scope.newToDo.prioritas,
             sudahDilakukan : false
         });
+        $scope.newToDo.judul,
+            $scope.newToDo.deskripsi="";
+            $scope.newToDo.tglMulai="";
+            $scope.newToDo.tglSelesai="";
+            $scope.newToDo.prioritas="";
+    }
+    
+    $scope.removeToDo = function(todo){
+        var removedToDo = $scope.toDoList.indexOf(todo);
+        $scope.toDoList.splice(removedToDo,1);
     }
     
     $scope.toDoList = [
