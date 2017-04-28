@@ -2,12 +2,14 @@ var toDoListApp = angular.module('toDoListApp',[]);
 
 toDoListApp.controller('toDoListController',['$scope', function($scope){
     
-    $scope.selectedToDo;
-    $scope.showEdit = false;
-    
-    $scope.editable = function(todo){
+    $scope.editToDo = function(todo){
         $scope.selectedToDo = todo;
-        $scope.showEdit = true;
+        $scope.showEditTodo = true;
+    }
+    
+    $scope.saveEditToDo = function() {
+        $scope.selectedToDo = {};
+        $scope.showEditTodo = false;
     }
     
     $scope.addToDo = function(){
@@ -46,7 +48,7 @@ toDoListApp.controller('toDoListController',['$scope', function($scope){
             deskripsi : "Membuat subsistem android",
             tglMulai : new Date(2017,4,19),
             tglSelesai : new Date(2017,4,26),
-            prioritas : "Sedang",
+            prioritas : "sedang",
             sudahDilakukan : false
         },
         {
@@ -54,7 +56,7 @@ toDoListApp.controller('toDoListController',['$scope', function($scope){
             deskripsi : "Buka website dokumentasi angular js",
             tglMulai : new Date(2017,4,23),
             tglSelesai : new Date(2017,4,26),
-            prioritas : "Rendah",
+            prioritas : "rendah",
             sudahDilakukan : false
         }
     ];

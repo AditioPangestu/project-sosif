@@ -32,7 +32,7 @@
                               </div>
                               </div>
                               <div class="col-md-6" style="text-align:right">
-                                <button class="btn btn-default btn-sm" ng-click="editable(todo)">Edit</button>
+                                <button class="btn btn-default btn-sm" ng-click="editToDo(todo)">Edit</button>
                                 <button type="submit" class="btn btn-primary btn-sm" ng-click="removeToDo(todo);">Hapus</button>
                               </div>
                           </div>
@@ -59,7 +59,7 @@
                               </div>
                               </div>
                               <div class="col-md-6" style="text-align:right">
-                                <button class="btn btn-default btn-sm" ng-click="editable(todo)">Edit</button>
+                                <button class="btn btn-default btn-sm" ng-click="editToDo(todo)">Edit</button>
                                 <button type="submit" class="btn btn-primary btn-sm" ng-click="removeToDo(todo);">Hapus</button>
                               </div>
                           </div>
@@ -86,7 +86,7 @@
                               </div>
                               </div>
                               <div class="col-md-6" style="text-align:right">
-                                <button class="btn btn-default btn-sm" ng-click="editable(todo)">Edit</button>
+                                <button class="btn btn-default btn-sm" ng-click="editToDo(todo)">Edit</button>
                                 <button type="submit" class="btn btn-primary btn-sm" ng-click="removeToDo(todo);">Hapus</button>
                               </div>
                           </div>
@@ -94,31 +94,31 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
-                    <form class="form-horizontal well well-sm" ng-submit="editToDo()" ng-show="{{showEdit=='true'}}">
+                    <form class="form-horizontal well well-sm" ng-submit="editToDo()" ng-if="showEditTodo">
                       <fieldset>
-                        <legend>Ubah todo list</legend>
+                        <legend>Ubah to do list</legend>
                         <div class="form-group">
                           <label for="inputJudul" class="col-lg-4 col-md-4 control-label">Judul task</label>
                           <div class="col-lg-8 col-md-8">
-                            <input type="text" class="form-control" id="inputJudul" required ng-model=newToDo.judul value="{{selectedToDo.judul}}">
+                            <input type="text" class="form-control" id="inputJudul" required ng-model="selectedToDo.judul">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="textArea" class="col-lg-4 col-md-4 control-label">Deskripsi</label>
                           <div class="col-lg-8 col-md-8">
-                            <textarea class="form-control" rows="3" id="textArea" required ng-model=newToDo.deskripsi>{{selectedToDo.deskripsi}}</textarea>
+                            <textarea class="form-control" rows="3" id="textArea" required ng-model="selectedToDo.deskripsi"></textarea>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="tanggalMulai" class="col-lg-4 col-md-4 control-label">Tgl mulai</label>
                           <div class="col-lg-8 col-md-8">
-                              <input type="date" class="form-control" id="tanggalMulai" required ng-model=newToDo.tglMulai value="{{selectedToDo.tglMulai}}">
+                              <input type="date" class="form-control" id="tanggalMulai" required ng-model="selectedToDo.tglMulai">
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="tanggalSelesai" class="col-lg-4 col-md-4 control-label">Tgl selesai</label>
                           <div class="col-lg-8 col-md-8">
-                              <input type="date" class="form-control" id="tanggalSelesai" required ng-model=newToDo.tglSelesai value="{{selectedToDo.tglSelesai}}">
+                              <input type="date" class="form-control" id="tanggalSelesai" required ng-model="selectedToDo.tglSelesai">
                           </div>
                         </div>
                         <div class="form-group">
@@ -126,19 +126,19 @@
                           <div class="col-lg-8 col-md-8">
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="proritas1" value="Tinggi" checked="" ng-model=newToDo.prioritas ng-checked="{{selectedToDo.prioritas=='tinggi'}}">
+                                <input type="radio" name="prioritas" id="proritas1" value="tinggi" ng-model="selectedToDo.prioritas">
                                 tinggi
                               </label>
                             </div>
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="prioritas2" value="sedang" ng-model=newToDo.prioritas ng-checked="{{selectedToDo.prioritas=='sedang'}}">
+                                <input type="radio" name="prioritas" id="prioritas2" value="sedang" ng-model="selectedToDo.prioritas">
                                 Sedang
                               </label>
                             </div>
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="prioritas3" value="rendah" ng-model=newToDo.prioritas ng-checked="{{selectedToDo.prioritas=='rendah'}}">
+                                <input type="radio" name="prioritas" id="prioritas3" value="rendah" ng-model="selectedToDo.prioritas">
                                 Rendah
                               </label>
                             </div>
@@ -146,15 +146,15 @@
                         </div>
                         <div class="form-group">
                           <div class="col-lg-12" style="text-align:right">
-                            <button type="reset" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-default" ng-click="saveEditToDo()">Cancel</button>
+                            <button type="submit" class="btn btn-primary" ng-click="saveEditToDo()">Submit</button>
                           </div>
                         </div>  
                       </fieldset>
                     </form>
                     <form class="form-horizontal well well-sm" ng-submit="addToDo()">
                       <fieldset>
-                        <legend>Tambah todo list</legend>
+                        <legend>Tambah to do list</legend>
                         <div class="form-group">
                           <label for="inputJudul" class="col-lg-4 col-md-4 control-label">Judul task</label>
                           <div class="col-lg-8 col-md-8">
@@ -184,7 +184,7 @@
                           <div class="col-lg-8 col-md-8">
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="proritas1" value="Tinggi" checked="" ng-model=newToDo.prioritas>
+                                <input type="radio" name="prioritas" id="proritas1" value="tinggi" checked="" ng-model=newToDo.prioritas>
                                 tinggi
                               </label>
                             </div>
