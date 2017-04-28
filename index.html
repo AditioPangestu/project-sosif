@@ -6,41 +6,88 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/style.css">
+        <title>To do list</title>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid" ng-app="toDoListApp" ng-controller="toDoListController">
+            <h1 style="border-bottom:1px solid #ddd;padding-bottom:15px;margin-bottom:20px">To do list</h1>
             <div class="row">
                 <div class="col-lg-3">
                     <h4>Prioritas Tinggi</h4>
-                    <div class="panel panel-success">
+                    <div class="panel panel-success" ng-repeat="todo in toDoList | filter:{prioritas:'tinggi'}">
                       <div class="panel-heading">
-                        <h3 class="panel-title">Panel success</h3>
+                        <h3 class="panel-title">{{todo.judul}}</h3>
+                        <h6 class="informasi-tanggal">{{todo.tglMulai}} - {{todo.tglSelesai}}</h6>  
                       </div>
                       <div class="panel-body">
-                        Panel content
+                        {{todo.deskripsi}}
                       </div>
+                      <div class="panel-footer">
+                          <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" ng-checked="{{todo.sudahDilakukan}}"> Sudah dikerjakan
+                                  </label>
+                              </div>
+                              </div>
+                              <div class="col-md-4" style="text-align:right">
+                                <button type="submit" class="btn btn-primary btn-sm">Hapus</button>
+                              </div>
+                          </div>
+                      </div>    
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <h4>Prioritas Sedang</h4>
-                    <div class="panel panel-success">
+                    <div class="panel panel-success" ng-repeat="todo in toDoList | filter:{prioritas:'sedang'}">
                       <div class="panel-heading">
-                        <h3 class="panel-title">Panel success</h3>
+                        <h3 class="panel-title">{{todo.judul}}</h3>
+                        <h6 class="informasi-tanggal">{{todo.tglMulai}} - {{todo.tglSelesai}}</h6>  
                       </div>
                       <div class="panel-body">
-                        Panel content
+                        {{todo.deskripsi}}
                       </div>
+                      <div class="panel-footer">
+                          <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" ng-checked="{{todo.sudahDilakukan}}"> Sudah dikerjakan
+                                  </label>
+                              </div>
+                              </div>
+                              <div class="col-md-4" style="text-align:right">
+                                <button type="submit" class="btn btn-primary btn-sm">Hapus</button>
+                              </div>
+                          </div>
+                      </div>    
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <h4>Prioritas Rendah</h4>
-                    <div class="panel panel-success">
+                    <div class="panel panel-success" ng-repeat="todo in toDoList | filter:{prioritas:'rendah'}">
                       <div class="panel-heading">
-                        <h3 class="panel-title">Panel success</h3>
+                        <h3 class="panel-title">{{todo.judul}}</h3>
+                        <h6 class="informasi-tanggal">{{todo.tglMulai}} - {{todo.tglSelesai}}</h6>  
                       </div>
                       <div class="panel-body">
-                        Panel content
+                        {{todo.deskripsi}}
                       </div>
+                      <div class="panel-footer">
+                          <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkbox">
+                                  <label>
+                                    <input type="checkbox" ng-checked="{{todo.sudahDilakukan}}"> Sudah dikerjakan
+                                  </label>
+                              </div>
+                              </div>
+                              <div class="col-md-4" style="text-align:right">
+                                <button type="submit" class="btn btn-primary btn-sm">Hapus</button>
+                              </div>
+                          </div>
+                      </div>    
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3">
@@ -50,25 +97,25 @@
                         <div class="form-group">
                           <label for="inputJudul" class="col-lg-4 col-md-4 control-label">Judul task</label>
                           <div class="col-lg-8 col-md-8">
-                            <input type="text" class="form-control" id="inputJudul" required>
+                            <input type="text" class="form-control" id="inputJudul" required ng-model=newToDo.judul>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="textArea" class="col-lg-4 col-md-4 control-label">Deskripsi</label>
                           <div class="col-lg-8 col-md-8">
-                            <textarea class="form-control" rows="3" id="textArea" required></textarea>
+                            <textarea class="form-control" rows="3" id="textArea" required ng-model=newToDo.deskripsi></textarea>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="tanggalMulai" class="col-lg-4 col-md-4 control-label">Tgl mulai</label>
                           <div class="col-lg-8 col-md-8">
-                              <input type="date" class="form-control" id="tanggalMulai" required>
+                              <input type="date" class="form-control" id="tanggalMulai" required ng-model=newToDo.tglMulai>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="tanggalSelesai" class="col-lg-4 col-md-4 control-label">Tgl selesai</label>
                           <div class="col-lg-8 col-md-8">
-                              <input type="date" class="form-control" id="tanggalSelesai" required>
+                              <input type="date" class="form-control" id="tanggalSelesai" required ng-model=newToDo.tglSelesai>
                           </div>
                         </div>
                         <div class="form-group">
@@ -76,28 +123,37 @@
                           <div class="col-lg-8 col-md-8">
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="proritas1" value="High" checked="">
-                                Tinggi
+                                <input type="radio" name="prioritas" id="proritas1" value="Tinggi" checked="" ng-model=newToDo.prioritas>
+                                tinggi
                               </label>
                             </div>
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="prioritas2" value="Medium">
+                                <input type="radio" name="prioritas" id="prioritas2" value="sedang" ng-model=newToDo.prioritas>
                                 Sedang
                               </label>
                             </div>
                             <div class="radio">
                               <label>
-                                <input type="radio" name="prioritas" id="prioritas3" value="Low">
+                                <input type="radio" name="prioritas" id="prioritas3" value="rendah" ng-model=newToDo.prioritas>
                                 Rendah
                               </label>
                             </div>
                           </div>
                         </div>
+                        <div class="form-group">
+                          <div class="col-lg-12" style="text-align:right">
+                            <button type="reset" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>  
                       </fieldset>
                     </form>
                 </div>
             </div>
         </div>
     </body>
+    <script src="resources/js/angular.min.js"></script>
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/jquery-1.11.2.min.js"></script>
 </html>
