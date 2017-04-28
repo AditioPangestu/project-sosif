@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/style.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h4>Prioritas Tinggi</h4>
+                    <div class="panel panel-success">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Panel success</h3>
+                      </div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Prioritas Sedang</h4>
+                    <div class="panel panel-success">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Panel success</h3>
+                      </div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Prioritas Rendah</h4>
+                    <div class="panel panel-success">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Panel success</h3>
+                      </div>
+                      <div class="panel-body">
+                        Panel content
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <form class="form-horizontal well well-sm">
+                      <fieldset>
+                        <legend>Tambah todo list</legend>
+                        <div class="form-group">
+                          <label for="inputJudul" class="col-lg-4 col-md-4 control-label">Judul task</label>
+                          <div class="col-lg-8 col-md-8">
+                            <input type="text" class="form-control" id="inputJudul" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="textArea" class="col-lg-4 col-md-4 control-label">Deskripsi</label>
+                          <div class="col-lg-8 col-md-8">
+                            <textarea class="form-control" rows="3" id="textArea" required></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="tanggalMulai" class="col-lg-4 col-md-4 control-label">Tgl mulai</label>
+                          <div class="col-lg-8 col-md-8">
+                              <input type="date" class="form-control" id="tanggalMulai" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="tanggalSelesai" class="col-lg-4 col-md-4 control-label">Tgl selesai</label>
+                          <div class="col-lg-8 col-md-8">
+                              <input type="date" class="form-control" id="tanggalSelesai" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-lg-4 col-md-4 control-label">Prioritas</label>
+                          <div class="col-lg-8 col-md-8">
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="prioritas" id="proritas1" value="High" checked="">
+                                Tinggi
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="prioritas" id="prioritas2" value="Medium">
+                                Sedang
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="prioritas" id="prioritas3" value="Low">
+                                Rendah
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
